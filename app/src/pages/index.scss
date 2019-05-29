@@ -1,0 +1,56 @@
+@import '../variables';
+
+@keyframes waiting {
+  from {
+    background-color: #333;
+  }
+  to {
+    background-color: green;
+  }
+}
+
+.setlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid $color-divider;
+    position: relative;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.5s;
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      transition: width 0.5s, background-color 0.5s;
+      background-color: rgba(255, 255, 255, 0.1);
+      z-index: 0;
+    }
+
+    &.active {
+      opacity: 1;
+      background-color: transparentize(#097f1a, 0.7);
+    }
+
+    &.waiting {
+      opacity: 1;
+      animation: waiting 0.3s infinite alternate;
+    }
+  }
+
+  &.playing {
+    li.active .progress {
+      background-color: green;
+    }
+  }
+}
