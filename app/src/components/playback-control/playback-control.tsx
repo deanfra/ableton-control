@@ -16,23 +16,23 @@ import { apiUrl } from '../../util/api';
 
 const globalSocket = io(`${apiUrl}/global`);
 
-const play = () => fetch(`${apiUrl}/global/play`, { method: 'post' });
+const play = () => fetch(`${apiUrl}/api/global/play`, { method: 'post' });
 
-const pause = () => fetch(`${apiUrl}/global/pause`, { method: 'post' });
+const pause = () => fetch(`${apiUrl}/api/global/pause`, { method: 'post' });
 
-const stop = () => fetch(`${apiUrl}/global/stop`, { method: 'post' });
+const stop = () => fetch(`${apiUrl}/api/global/stop`, { method: 'post' });
 
 const startRecording = () =>
-  fetch(`${apiUrl}/global/startRecording`, { method: 'post' });
+  fetch(`${apiUrl}/api/global/startRecording`, { method: 'post' });
 
 const stopRecording = () =>
-  fetch(`${apiUrl}/global/stopRecording`, { method: 'post' });
+  fetch(`${apiUrl}/api/global/stopRecording`, { method: 'post' });
 
 const jumpToNextCue = () =>
-  fetch(`${apiUrl}/global/jumpToNextCue`, { method: 'post' });
+  fetch(`${apiUrl}/api/global/jumpToNextCue`, { method: 'post' });
 
 const jumpToPrevCue = () =>
-  fetch(`${apiUrl}/global/jumpToPrevCue`, { method: 'post' });
+  fetch(`${apiUrl}/api/global/jumpToPrevCue`, { method: 'post' });
 
 export const PlaybackControl: React.FC = () => {
   const [songTime, setSongTime] = useState<number>();
@@ -54,7 +54,7 @@ export const PlaybackControl: React.FC = () => {
   }, [songTime, signatureNumerator]);
 
   useEffect(() => {
-    fetch(`${apiUrl}/global/status`)
+    fetch(`${apiUrl}/api/global/status`)
       .then(r => r.json())
       .then(d => {
         setSongTime(d.time);

@@ -19,11 +19,12 @@ const io = socketIo(server);
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "../app/public")));
 
-app.use("/global", global(io, ableton));
-app.use("/setlist", setlist(io, ableton));
-app.use("/loopers", loopers(io, ableton));
+app.use("/api/global", global(io, ableton));
+app.use("/api/setlist", setlist(io, ableton));
+app.use("/api/loopers", loopers(io, ableton));
+
+app.use(express.static(path.join(__dirname, "../app/public")));
 
 const port = process.env.PORT || 3001;
 server.listen(port, () => console.log(`Listening on port ${port}`));

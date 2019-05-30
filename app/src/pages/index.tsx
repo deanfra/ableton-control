@@ -9,7 +9,7 @@ import io from 'socket.io-client';
 import { Spinner } from '../components/spinner/spinner';
 import { apiUrl } from '../util/api';
 const globalSocket = io(`${apiUrl}/global`);
-const setlistSocket = io(`${apiUrl}/setlist`);
+const setlistSocket = io(`${apiUrl}/api/setlist`);
 
 interface EntryProps {
   cuePoint: RawCuePoint;
@@ -63,7 +63,7 @@ const IndexPage = () => {
   const [setlist, setSetlist] = useState<RawCuePoint[]>();
 
   useEffect(() => {
-    fetch(`${apiUrl}/global/status`)
+    fetch(`${apiUrl}/api/global/status`)
       .then(r => r.json())
       .then(d => {
         setSongTime(d.time);
@@ -71,7 +71,7 @@ const IndexPage = () => {
         setIsPlaying(d.isPlaying);
       });
 
-    fetch(`${apiUrl}/setlist`)
+    fetch(`${apiUrl}/api/setlist`)
       .then(r => r.json())
       .then(d => {
         setSetlist(d);
@@ -99,7 +99,7 @@ const IndexPage = () => {
       body.append('play', '1');
     }
 
-    fetch(`${apiUrl}/setlist/jump`, {
+    fetch(`${apiUrl}/api/api/setlist/jump`, {
       method: 'post',
       body,
     });

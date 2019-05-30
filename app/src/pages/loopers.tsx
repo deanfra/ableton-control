@@ -55,7 +55,7 @@ const IndexPage = () => {
   const [loopers, setLoopers] = useState<Looper[]>([]);
 
   useEffect(() => {
-    fetch(`${apiUrl}/loopers`)
+    fetch(`${apiUrl}/api/loopers`)
       .then(r => r.json())
       .then(d => setLoopers(d));
   }, []);
@@ -95,7 +95,7 @@ const IndexPage = () => {
     const body = new URLSearchParams();
     body.append('id', String(id));
 
-    fetch(`${apiUrl}/loopers/focus`, {
+    fetch(`${apiUrl}/api/loopers/focus`, {
       method: 'post',
       body,
     });
