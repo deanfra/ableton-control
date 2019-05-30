@@ -20,7 +20,7 @@
     position: relative;
     cursor: pointer;
     opacity: 0.8;
-    transition: opacity 0.5s;
+    transition: opacity 0.5s, background-color 0.5s;
 
     span {
       position: relative;
