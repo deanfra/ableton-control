@@ -105,7 +105,6 @@ const IndexPage = () => {
   };
 
   return (
-    <Layout>
       <ul className={classNames('setlist', { playing: isPlaying })}>
         {setlist && songTime !== undefined && songLength !== undefined ? (
           setlist.map((c, index) => (
@@ -123,7 +122,6 @@ const IndexPage = () => {
           <Spinner />
         )}
       </ul>
-    </Layout>
   );
 };
 
