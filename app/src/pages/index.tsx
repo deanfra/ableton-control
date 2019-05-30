@@ -40,7 +40,7 @@ const Entry: React.FC<EntryProps> = ({
     if (isActive) {
       setIsWaiting(false);
     }
-  }, [isActive]);
+  }, [isActive, songTime]);
 
   return (
     <li
