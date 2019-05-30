@@ -33,6 +33,7 @@ header {
       color: $color-text;
       text-decoration: none;
       padding: 0 1rem;
+      transition: background-color 0.5s;
 
       &.active {
         background: rgba(255, 255, 255, 0.04);
@@ -42,5 +43,5 @@ header {
 }
 
 main {
-  padding-top: 4rem;
+  padding: 4rem 0;
 }
