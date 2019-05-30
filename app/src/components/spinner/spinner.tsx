@@ -14,16 +14,12 @@ export const Spinner: React.FC = () => (
       <circle
         cx="50"
         cy="50"
-        ng-attr-r="{{config.radius}}"
-        ng-attr-stroke-width="{{config.width}}"
-        ng-attr-stroke="{{config.stroke}}"
-        ng-attr-stroke-dasharray="{{config.dasharray}}"
         fill="none"
-        stroke-linecap="round"
+        strokeLinecap="round"
         r="40"
-        stroke-width="4"
+        strokeWidth="4"
         stroke="#fff"
-        stroke-dasharray="62.83185307179586 62.83185307179586"
+        strokeDasharray="62.83185307179586 62.83185307179586"
         transform="rotate(47.8973 50 50)"
       >
         <animateTransform
