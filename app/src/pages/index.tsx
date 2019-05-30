@@ -99,7 +99,7 @@ const IndexPage = () => {
       body.append('play', '1');
     }
 
-    fetch(`${apiUrl}/api/api/setlist/jump`, {
+    fetch(`${apiUrl}/api/setlist/jump`, {
       method: 'post',
       body,
     });
