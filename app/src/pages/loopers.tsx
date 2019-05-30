@@ -1,12 +1,11 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
-import { Layout } from '../components/layout/layout';
+import Helmet from 'react-helmet';
 import { Spinner } from '../components/spinner/spinner';
 
 import './loopers.scss';
 
 import io from 'socket.io-client';
-import Helmet from 'react-helmet';
 const looperSocket = io(`${process.env.GATSBY_API_HOST!}/loopers`);
 
 interface Looper {

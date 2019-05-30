@@ -1,13 +1,12 @@
 import { RawCuePoint } from 'ableton-js/ns/cue-point';
 import classNames from 'classnames';
 import React, { useEffect, useMemo, useState } from 'react';
-import { Layout } from '../components/layout/layout';
+import Helmet from 'react-helmet';
 
 import './index.scss';
 
 import io from 'socket.io-client';
 import { Spinner } from '../components/spinner/spinner';
-import Helmet from 'react-helmet';
 const globalSocket = io(`${process.env.GATSBY_API_HOST!}/global`);
 const setlistSocket = io(`${process.env.GATSBY_API_HOST!}/setlist`);
 
