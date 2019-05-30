@@ -7,8 +7,9 @@ import './index.scss';
 
 import io from 'socket.io-client';
 import { Spinner } from '../components/spinner/spinner';
-const globalSocket = io(`${process.env.GATSBY_API_HOST!}/global`);
-const setlistSocket = io(`${process.env.GATSBY_API_HOST!}/setlist`);
+import { apiUrl } from '../util/api';
+const globalSocket = io(`${apiUrl}/global`);
+const setlistSocket = io(`${apiUrl}/setlist`);
 
 interface EntryProps {
   cuePoint: RawCuePoint;
@@ -62,7 +63,7 @@ const IndexPage = () => {
   const [setlist, setSetlist] = useState<RawCuePoint[]>();
 
   useEffect(() => {
-    fetch(`${process.env.GATSBY_API_HOST!}/global/status`)
+    fetch(`${apiUrl}/global/status`)
       .then(r => r.json())
       .then(d => {
         setSongTime(d.time);
@@ -70,7 +71,7 @@ const IndexPage = () => {
         setIsPlaying(d.isPlaying);
       });
 
-    fetch(`${process.env.GATSBY_API_HOST!}/setlist`)
+    fetch(`${apiUrl}/setlist`)
       .then(r => r.json())
       .then(d => {
         setSetlist(d);
@@ -98,7 +99,7 @@ const IndexPage = () => {
       body.append('play', '1');
     }
 
-    fetch(`${process.env.GATSBY_API_HOST!}/setlist/jump`, {
+    fetch(`${apiUrl}/setlist/jump`, {
       method: 'post',
       body,
     });

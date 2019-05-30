@@ -6,7 +6,8 @@ import { Spinner } from '../components/spinner/spinner';
 import './loopers.scss';
 
 import io from 'socket.io-client';
-const looperSocket = io(`${process.env.GATSBY_API_HOST!}/loopers`);
+import { apiUrl } from '../util/api';
+const looperSocket = io(`${apiUrl}/loopers`);
 
 interface Looper {
   id: number;
@@ -54,7 +55,7 @@ const IndexPage = () => {
   const [loopers, setLoopers] = useState<Looper[]>([]);
 
   useEffect(() => {
-    fetch(`${process.env.GATSBY_API_HOST!}/loopers`)
+    fetch(`${apiUrl}/loopers`)
       .then(r => r.json())
       .then(d => setLoopers(d));
   }, []);
@@ -94,7 +95,7 @@ const IndexPage = () => {
     const body = new URLSearchParams();
     body.append('id', String(id));
 
-    fetch(`${process.env.GATSBY_API_HOST!}/loopers/focus`, {
+    fetch(`${apiUrl}/loopers/focus`, {
       method: 'post',
       body,
     });

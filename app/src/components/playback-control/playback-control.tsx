@@ -12,28 +12,27 @@ import {
 } from '../icons/icons';
 import './playback-control.scss';
 
-const globalSocket = io(`${process.env.GATSBY_API_HOST!}/global`);
+import { apiUrl } from '../../util/api';
 
-const play = () =>
-  fetch(`${process.env.GATSBY_API_HOST!}/global/play`, { method: 'post' });
+const globalSocket = io(`${apiUrl}/global`);
 
-const pause = () =>
-  fetch(`${process.env.GATSBY_API_HOST!}/global/pause`, { method: 'post' });
+const play = () => fetch(`${apiUrl}/global/play`, { method: 'post' });
 
-const stop = () =>
-  fetch(`${process.env.GATSBY_API_HOST!}/global/stop`, { method: 'post' });
+const pause = () => fetch(`${apiUrl}/global/pause`, { method: 'post' });
+
+const stop = () => fetch(`${apiUrl}/global/stop`, { method: 'post' });
 
 const startRecording = () =>
-  fetch(`${process.env.GATSBY_API_HOST!}/global/startRecording`, { method: 'post' });
+  fetch(`${apiUrl}/global/startRecording`, { method: 'post' });
 
 const stopRecording = () =>
-  fetch(`${process.env.GATSBY_API_HOST!}/global/stopRecording`, { method: 'post' });
+  fetch(`${apiUrl}/global/stopRecording`, { method: 'post' });
 
 const jumpToNextCue = () =>
-  fetch(`${process.env.GATSBY_API_HOST!}/global/jumpToNextCue`, { method: 'post' });
+  fetch(`${apiUrl}/global/jumpToNextCue`, { method: 'post' });
 
 const jumpToPrevCue = () =>
-  fetch(`${process.env.GATSBY_API_HOST!}/global/jumpToPrevCue`, { method: 'post' });
+  fetch(`${apiUrl}/global/jumpToPrevCue`, { method: 'post' });
 
 export const PlaybackControl: React.FC = () => {
   const [songTime, setSongTime] = useState<number>();
@@ -55,7 +54,7 @@ export const PlaybackControl: React.FC = () => {
   }, [songTime, signatureNumerator]);
 
   useEffect(() => {
-    fetch(`${process.env.GATSBY_API_HOST!}/global/status`)
+    fetch(`${apiUrl}/global/status`)
       .then(r => r.json())
       .then(d => {
         setSongTime(d.time);
