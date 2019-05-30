@@ -1,0 +1,48 @@
+@import '../variables';
+
+.loopers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid $color-divider;
+    cursor: pointer;
+    opacity: 0.8;
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .color {
+      width: 1rem;
+      border-right: 1px solid #333;
+    }
+
+    .info {
+      padding: 1rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .state {
+        opacity: 0.7;
+      }
+    }
+
+    &.record {
+      background-color: transparentize(#fe3941, 0.5);
+    }
+
+    &.play {
+      background-color: transparentize(#1dfe8a, 0.5);
+    }
+
+    &.overdub {
+      background-color: transparentize(#6fd7fc, 0.5);
+    }
+  }
+}
