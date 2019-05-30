@@ -1,0 +1,76 @@
+@import '../../variables';
+
+@keyframes record-counting-in {
+  from {
+    color: darken(red, 5);
+  }
+  to {
+    color: red;
+  }
+}
+
+footer.playback {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: $color-background;
+  display: flex;
+  align-items: stretch;
+  height: 4rem;
+  box-sizing: border-box;
+  border-top: 2px solid #414141;
+
+  .info {
+    padding: 0.5rem 1rem;
+    min-width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    border-right: 1px solid $color-divider;
+  }
+
+  .actions {
+    display: flex;
+    flex-grow: 1;
+    overflow-x: auto;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: none;
+      border-left: 1px solid $color-divider;
+      flex-grow: 1;
+      padding: 1rem;
+      min-width: 3rem;
+      color: #fff;
+      transition: color 0.5s;
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+
+      &.counting-in {
+        animation: record-counting-in 0.5s infinite alternate;
+      }
+
+      &.recording {
+        color: red;
+        background: transparentize(#fe0f17, 0.5);
+      }
+
+      svg {
+        flex-grow: 1;
+        max-width: 1.2rem;
+      }
+    }
+  }
+}
