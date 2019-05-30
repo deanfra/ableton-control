@@ -7,6 +7,7 @@ import './index.scss';
 
 import io from 'socket.io-client';
 import { Spinner } from '../components/spinner/spinner';
+import Helmet from 'react-helmet';
 const globalSocket = io(`${process.env.GATSBY_API_HOST!}/global`);
 const setlistSocket = io(`${process.env.GATSBY_API_HOST!}/setlist`);
 
@@ -105,6 +106,10 @@ const IndexPage = () => {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>Setlist - Ableton Control</title>
+      </Helmet>
       <ul className={classNames('setlist', { playing: isPlaying })}>
         {setlist && songTime !== undefined && songLength !== undefined ? (
           setlist.map((c, index) => (
@@ -122,6 +127,7 @@ const IndexPage = () => {
           <Spinner />
         )}
       </ul>
+    </>
   );
 };
 
