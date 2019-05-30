@@ -52,6 +52,7 @@ footer.playback {
       color: #fff;
       transition: color 0.5s;
       cursor: pointer;
+      margin: 0;
 
       &:disabled {
         opacity: 0.6;
