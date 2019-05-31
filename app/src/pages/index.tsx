@@ -34,6 +34,7 @@ const Entry: React.FC<EntryProps> = ({
     [songTime, cuePoint, nextCueTime],
   );
 
+  const isSubCue = useMemo(() => cuePoint.name.startsWith('> '), [cuePoint]);
   const [isWaiting, setIsWaiting] = useState(false);
 
   useEffect(() => {
@@ -48,9 +49,13 @@ const Entry: React.FC<EntryProps> = ({
         setIsWaiting(true);
         onClick(cuePoint);
       }}
-      className={classNames({ active: isActive, waiting: isWaiting })}
+      className={classNames({
+        active: isActive,
+        waiting: isWaiting,
+        subcue: isSubCue,
+      })}
     >
-      <span>{cuePoint.name}</span>
+      <span>{cuePoint.name.replace(/^\> /, '')}</span>
       <div className="progress" style={{ width: `${progress * 100}%` }} />
     </li>
   );

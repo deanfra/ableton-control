@@ -46,6 +46,10 @@
       opacity: 1;
       animation: waiting 0.3s infinite alternate;
     }
+
+    &.subcue {
+      padding: 0.6rem 1.5rem 0.6rem 3rem;
+    }
   }
 
   &.playing {
