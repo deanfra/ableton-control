@@ -9,7 +9,7 @@ import io from 'socket.io-client';
 import { Spinner } from '../components/spinner/spinner';
 import { apiUrl } from '../util/api';
 const globalSocket = io(`${apiUrl}/global`);
-const setlistSocket = io(`${apiUrl}/api/setlist`);
+const setlistSocket = io(`${apiUrl}/setlist`);
 
 interface EntryProps {
   cuePoint: RawCuePoint;
