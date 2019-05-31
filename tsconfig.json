@@ -4,6 +4,7 @@
     "target": "es6",
     "module": "commonjs",
     "strict": true,
+    "allowJs": false,
     "esModuleInterop": true
   }
 }
