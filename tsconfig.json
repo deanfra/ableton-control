@@ -1,17 +1,9 @@
 {
+  "files": ["server/index.ts"],
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "lib": ["es2017"],
-    "jsx": "preserve",
     "strict": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noEmit": true,
-    "skipLibCheck": true,
-    "noImplicitAny": false,
-    "importHelpers": true,
-    "resolveJsonModule": true
+    "esModuleInterop": true
   }
 }
